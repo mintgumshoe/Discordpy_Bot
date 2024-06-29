@@ -1,0 +1,13 @@
+import discord
+from discord.ext import commands 
+
+# This is an example/template of a Discord.py Cog
+
+class Example(commands.Cog, name = "Example Cog"):
+  def __init__(self, bot : commands.Bot):
+    self.bot = bot
+  async def on_ready(self):
+    print("The cog has been connected")
+
+async def setup(bot : commands.Bot):
+  await bot.add_cog(Example(bot))
