@@ -1,7 +1,7 @@
 import discord
 from discord.app_commands.checks import has_permissions
 from discord.ext import commands 
-from utils import bot_channel, embed_color, currency, random 
+from utils import bot_channel, embed_color, currency, random, bank_name
 from cogs.basic import isBotChannel, makeQuery
 
 class Economy(commands.Cog, name = "Economy"):
@@ -38,7 +38,7 @@ class Economy(commands.Cog, name = "Economy"):
       #print(f"Account fetched! W: {account[1]}, B: {account[2]}")
       if result: 
         try: 
-          embed = discord.Embed(title="🏛️ Cove Credit Union", description=f"{member}'s account")
+          embed = discord.Embed(title=f"🏛️ {bank_name}", description=f"{member}'s account")
           embed.add_field(name="👛 Wallet", value=f"{account[1]}", inline=False)
           embed.add_field(name="💰 Bank ", value=f"{account[2]}", inline=False)
           return await ctx.send(embed=embed)
